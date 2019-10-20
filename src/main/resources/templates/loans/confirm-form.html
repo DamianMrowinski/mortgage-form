@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Update status</title>
+</head>
+
+<body>
+<div class="container">
+    <hr>
+    <p class="h4 mb-4">Update current status</p>
+    <form th:action="@{/loans/save-updated-form}" th:object="${loan}" method="POST">
+        <input type="hidden" th:field="*{id}"/>
+        <div id="dropdown-accept-reject">
+            <select th:field="*{status}" class="btn btn-info col-2 float-right">
+                <option th:value='Accepted' th:text="Accept"></option>
+                <option th:value='Rejected' th:text="Reject"></option>
+            </select>
+        </div>
+        <br><br>
+
+        <button type="submit" class="btn btn-info col-2 float-right">Update status</button>
+
+        Sales price
+        <input type="text" th:field="*{salesPrice}"
+               class="form-control mb-4 col-4">
+
+        Down payment
+        <input type="text" th:field="*{downPayment}"
+               class="form-control mb-4 col-4">
+
+        Length of employment
+        <input type="text" th:field="*{lengthOfEmployment}"
+               class="form-control mb-4 col-4">
+
+        Monthly income
+        <input type="text" th:field="*{monthlyIncome}"
+               class="form-control mb-4 col-4">
+
+        Monthly commitment
+        <input type="text" th:field="*{monthlyCommitment}"
+               class="form-control mb-4 col-4">
+
+        First name
+        <input type="text" th:field="*{firstName}"
+               class="form-control mb-4 col-4">
+
+        Last name
+        <input type="text" th:field="*{lastName}"
+               class="form-control mb-4 col-4">
+
+        Phone number
+        <input type="text" th:field="*{phoneNumber}"
+               class="form-control mb-4 col-4">
+    </form>
+    <hr>
+    <a th:href="@{/loans/new-form}" class="btn btn-info col-2">
+        Back to list
+    </a>
+    <br><br>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

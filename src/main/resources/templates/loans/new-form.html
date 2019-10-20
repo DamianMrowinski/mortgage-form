@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>New form</title>
+</head>
+
+<body>
+<div class="container">
+    <br>
+    <p class="h4 mb-4">New mortgage form</p>
+    <form th:action="@{/loans/save-new-form}" th:object="${loan}" method="POST">
+        <input type="hidden" th:field="*{id}"/>
+
+        <!--        <table>-->
+        <input type="text" th:field="*{salesPrice}"
+               class="form-control mb-4 col-4" placeholder="Sales price">
+
+        <!--        <tr>-->
+        <!--            <td><input type="text" th:field="*{salesPrice}"/></td>-->
+        <!--            <td th:if="${#fields.hasErrors('salesPrice')}" th:errors="*{salesPrice}">Name Error</td>-->
+        <!--        </tr>-->
+
+        <input type="text" th:field="*{downPayment}"
+               class="form-control mb-4 col-4" placeholder="Down payment">
+
+        <input type="text" th:field="*{lengthOfEmployment}"
+               class="form-control mb-4 col-4" placeholder="Length of employment">
+
+        <input type="text" th:field="*{monthlyIncome}"
+               class="form-control mb-4 col-4" placeholder="Monthly income">
+
+        <input type="text" th:field="*{monthlyCommitment}"
+               class="form-control mb-4 col-4" placeholder="Monthly commitment">
+
+        <input type="text" th:field="*{firstName}"
+               class="form-control mb-4 col-4" placeholder="First name">
+
+        <input type="text" th:field="*{lastName}"
+               class="form-control mb-4 col-4" placeholder="Last name">
+
+        <input type="text" th:field="*{phoneNumber}"
+               class="form-control mb-4 col-4" placeholder="Phone number">
+
+        <input type="hidden" th:field="*{status}"/>
+
+        <button type="submit" class="btn btn-info col-2">Send</button>
+        <!--        </table>-->
+    </form>
+    <hr>
+    <br><br>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
