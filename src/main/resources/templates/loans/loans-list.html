@@ -13,12 +13,14 @@
 </head>
 <body>
 <div class="container"><br>
-    <form action="#" align="right" th:action="@{/logout}" method="POST">
+
+    <form action="#" class="float-right" th:action="@{/logout}" method="POST">
         <input type="submit" value="Logout" class="btn btn-outline-primary mt-0"/>
     </form>
 
     <div class="logged-as font-italic">
-        <p align="right">Logged as <span sec:authentication="name"></span></p>
+        <br><br>
+        <p align="right"><span sec:authentication="name"></span></p>
     </div>
 
     <h4 th style="text-align:center">Mortgage forms</h4><br>
@@ -26,12 +28,12 @@
     <a th:href="@{/loans/new-form}" class="btn btn-primary mb-3 float-right">Add new entry</a>
 
     <form th:action="@{/loans/search}" class="form-inline">
-        <input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="lastName" placeholder="Type client's name"/>
+        <input class="form-control ml-5 mr-sm-2 mb-3" type="search" name="lastName" placeholder="Type client's name"/>
         <button class="btn btn-secondary mb-3" type="submit">Search</button>
     </form>
 
-    <table class="table table-hover table-bordered bg-light">
-        <tr class="table-primary"; style="text-align: center ">
+    <table class="table table-responsive table-hover table-bordered bg-light">
+        <tr class="table-primary" ; style="text-align: center ">
             <th scope="col">No</th>
             <th scope="col">Sales price</th>
             <th scope="col">Down Payment</th>
@@ -60,13 +62,15 @@
             <td>
                 <div sec:authorize="hasAnyRole('ROLE_EMPLOYEE', 'ROLE_MANAGER')">
                     <a th:href="@{/loans/confirm-form(loanId=${tempLoan.id})}"
-                       class="btn btn-success btn-sm" onclick="if (!(confirm('Are you sure you want to delete loan form?'))) return false">
+                       class="btn btn-success btn-sm"
+                       onclick="if (!(confirm('Are you sure you want to delete loan form?'))) return false">
                         Update
                     </a>
                 </div>
                 <div sec:authorize="hasRole('MANAGER')">
                     <a th:href="@{/loans/delete(loanId=${tempLoan.id})}"
-                       class="btn btn-danger btn-sm" onclick="if (!(confirm('Are you sure you want to update loan form?'))) return false">
+                       class="btn btn-danger btn-sm"
+                       onclick="if (!(confirm('Are you sure you want to update loan form?'))) return false">
                         Delete&nbsp
                     </a>
                 </div>
@@ -76,7 +80,6 @@
     </table>
 </div>
 </body>
-
 </html>
 
 

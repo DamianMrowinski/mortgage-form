@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MortgageFormApp {
-	public static void main(String[] args) {
-		SpringApplication.run(MortgageFormApp.class, args);
-	}
+
+    public static void main(String[] args) {
+        SpringApplication.run(MortgageFormApp.class, args);
+    }
+
 }

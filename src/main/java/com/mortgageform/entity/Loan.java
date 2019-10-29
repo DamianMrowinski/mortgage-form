@@ -16,7 +16,7 @@ public class Loan {
     @Column(name = "id")
     private int id;
 
-//    @NotNull(message = "is required")
+    //    @NotNull(message = "is required")
     @Column(name = "sales_price")
     private Integer salesPrice;
 

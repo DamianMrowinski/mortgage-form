@@ -6,15 +6,15 @@ import com.mortgageform.entity.Loan;
 
 public interface LoanService {
 
-	void saveNewForm(Loan theLoan);
+    void saveNewForm(Loan theLoan);
 
-	void saveUpdatedForm(Loan theLoan);
+    void saveUpdatedForm(Loan theLoan);
 
-	void deleteById(int theId);
+    void deleteById(int theId);
 
     List<Loan> findAllByOrderByIdDesc();
 
     Loan findById(int theId);
 
-	List<Loan> searchBy(String lastName);
+    List<Loan> searchBy(String lastName);
 }
