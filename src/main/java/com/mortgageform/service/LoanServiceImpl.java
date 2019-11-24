@@ -1,12 +1,12 @@
 package com.mortgageform.service;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.mortgageform.dao.LoanRepository;
 import com.mortgageform.entity.Loan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.mortgageform.dao.LoanRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LoanServiceImpl implements LoanService {
@@ -41,7 +41,7 @@ public class LoanServiceImpl implements LoanService {
     @Override
     public Loan findById(int theId) {
         Optional<Loan> result = loanRepository.findById(theId);
-        Loan theLoan = null;
+        Loan theLoan;
         if (result.isPresent()) {
             theLoan = result.get();
         } else {
@@ -52,7 +52,7 @@ public class LoanServiceImpl implements LoanService {
 
     @Override
     public List<Loan> searchBy(String lastName) {
-        List<Loan> results = null;
+        List<Loan> results;
         if (lastName != null && (lastName.trim().length() > 0)) {
             results = loanRepository.findByLastName(lastName);
         } else {

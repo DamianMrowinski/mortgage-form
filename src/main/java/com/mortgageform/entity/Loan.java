@@ -1,11 +1,10 @@
 package com.mortgageform.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "loan")
@@ -16,37 +15,48 @@ public class Loan {
     @Column(name = "id")
     private int id;
 
-    //    @NotNull(message = "is required")
+    @NotNull(message = "Enter sales price")
+    @Min(value = 100000, message = "Sales price - minimum value 100 000 PLN")
     @Column(name = "sales_price")
     private Integer salesPrice;
 
+    @NotNull(message = "Enter down payment")
+    @Min(value = 5000, message = "Down payment - minimum value 5000 PLN")
     @Column(name = "down_payment")
     private Integer downPayment;
 
+    @NotNull(message = "Enter mortgage term")
+    @Min(value = 1, message = "Mortgage term - minimum 1 year, maximum 30 years")
+    @Max(value = 30, message = "Mortgage term - minimum 1 year, maximum 30 years")
     @Column(name = "mortgage_term")
     private Integer mortgageTerm;
 
-    @Column(name = "length_of_employment")
-    private Integer lengthOfEmployment;
-
+    @NotNull(message = "Enter monthly income")
+    @Min(value = 2000, message = "Monthly income - minimum 2000 PLN per month")
     @Column(name = "monthly_income")
     private Integer monthlyIncome;
 
+    @NotNull(message = "Enter monthly commitment")
+    @Min(value = 500, message = "Monthly commitment - minimum 500 PLN per month")
     @Column(name = "monthly_commitment")
     private Integer monthlyCommitment;
 
+    @NotNull(message = "Enter first name")
+    @Size(min = 2, max = 30, message = "Enter last name")
     @Column(name = "first_name")
     private String firstName;
 
+    @NotNull(message = "Enter first name")
+    @Size(min = 2, max = 30, message = "Enter last name")
     @Column(name = "last_name")
     private String lastName;
 
+    @NotNull(message = "Enter phone number")
     @Column(name = "phone_number")
     private Integer phoneNumber;
 
     @Column(name = "status")
     private String status;
-
 
     public Loan() {
     }
@@ -108,14 +118,6 @@ public class Loan {
         this.mortgageTerm = mortgageTerm;
     }
 
-    public Integer getLengthOfEmployment() {
-        return lengthOfEmployment;
-    }
-
-    public void setLengthOfEmployment(Integer lengthOfEmployment) {
-        this.lengthOfEmployment = lengthOfEmployment;
-    }
-
     public Integer getMonthlyIncome() {
         return monthlyIncome;
     }
@@ -171,7 +173,6 @@ public class Loan {
                 ", salesPrice=" + salesPrice +
                 ", downPayment=" + downPayment +
                 ", mortgageTerm=" + mortgageTerm +
-                ", lengthOfEmployment=" + lengthOfEmployment +
                 ", monthlyIncome=" + monthlyIncome +
                 ", monthlyCommitment=" + monthlyCommitment +
                 ", firstName='" + firstName + '\'' +

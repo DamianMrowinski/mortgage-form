@@ -1,84 +1,90 @@
 <!DOCTYPE HTML>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <title>Mortgage forms</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" media="screen" th:href="@{/css/style.css}"/>
+    <div th:replace="fragments/head :: head"></div>
 </head>
+
 <body>
+<div th:replace="fragments/logout-dropdown-list :: logout-dropdown-list"></div>
+
 <div class="container"><br>
+    <div>
+        <h4 id="logo">Mortgage forms</h4>
+    </div>
+    <div>
+        <a th:href="@{/loans/new-form}" class="btn btn-light mb-3 float-left font-button" style="font-size: 16px">Add
+            new
+            entry</a>
 
-    <form action="#" class="float-right" th:action="@{/logout}" method="POST">
-        <input type="submit" value="Logout" class="btn btn-outline-primary mt-0"/>
-    </form>
-
-    <div class="logged-as font-italic">
-        <br><br>
-        <p align="right"><span sec:authentication="name"></span></p>
+        <form th:action="@{/loans/search}" class="form-inline font-button float-right">
+            <input class="form-control ml-5 mr-sm-2 mb-3" type="search" name="lastName"
+                   placeholder="Type client's name"/>
+            <button class="btn btn-light mb-3" type="submit">Search</button>
+        </form>
     </div>
 
-    <h4 th style="text-align:center">Mortgage forms</h4><br>
+    <div th:if="${loans.isEmpty()}" style="clear: both">
+        <div class="alert alert-info" role="alert">
+            No records found. Please try again.
+        </div>
+    </div>
 
-    <a th:href="@{/loans/new-form}" class="btn btn-primary mb-3 float-right">Add new entry</a>
-
-    <form th:action="@{/loans/search}" class="form-inline">
-        <input class="form-control ml-5 mr-sm-2 mb-3" type="search" name="lastName" placeholder="Type client's name"/>
-        <button class="btn btn-secondary mb-3" type="submit">Search</button>
-    </form>
-
-    <table class="table table-responsive table-hover table-bordered bg-light">
-        <tr class="table-primary" ; style="text-align: center ">
+    <table th:if="${!loans.isEmpty()}" class="table table-hover table-condensed">
+        <tr class="table-primary" style="text-align: center">
             <th scope="col">No</th>
             <th scope="col">Sales price</th>
-            <th scope="col">Down Payment</th>
-            <th scope="col">Length of employment</th>
+            <th scope="col">Down payment</th>
+            <th scope="col">Mortgage term</th>
             <th scope="col">Monthly income</th>
             <th scope="col">Monthly commitment</th>
             <th scope="col">First name</th>
             <th scope="col">Last name</th>
             <th scope="col">Phone number</th>
             <th scope="col">Status</th>
-            <th scope="col">Activity</th>
+            <th scope="col" style="width: 12%">Activity</th>
         </tr>
 
         <tbody>
         <tr th:each="tempLoan : ${loans}">
-            <td th:text="${tempLoan.id}"/>
-            <td th:text="${tempLoan.salesPrice}"/>
-            <td th:text="${tempLoan.downPayment}"/>
-            <td th:text="${tempLoan.lengthOfEmployment}"/>
-            <td th:text="${tempLoan.monthlyIncome}"/>
-            <td th:text="${tempLoan.monthlyCommitment}"/>
-            <td th:text="${tempLoan.firstName}"/>
-            <td th:text="${tempLoan.lastName}"/>
-            <td th:text="${tempLoan.phoneNumber}"/>
-            <td th:text="${tempLoan.status}"/>
-            <td>
-                <div sec:authorize="hasAnyRole('ROLE_EMPLOYEE', 'ROLE_MANAGER')">
-                    <a th:href="@{/loans/confirm-form(loanId=${tempLoan.id})}"
-                       class="btn btn-success btn-sm"
-                       onclick="if (!(confirm('Are you sure you want to delete loan form?'))) return false">
-                        Update
-                    </a>
-                </div>
-                <div sec:authorize="hasRole('MANAGER')">
-                    <a th:href="@{/loans/delete(loanId=${tempLoan.id})}"
-                       class="btn btn-danger btn-sm"
-                       onclick="if (!(confirm('Are you sure you want to update loan form?'))) return false">
-                        Delete&nbsp
-                    </a>
+            <td th:text="${tempLoan.id}"></td>
+            <td th:text="${tempLoan.salesPrice}"></td>
+            <td th:text="${tempLoan.downPayment}"></td>
+            <td th:text="${tempLoan.mortgageTerm}"></td>
+            <td th:text="${tempLoan.monthlyIncome}"></td>
+            <td th:text="${tempLoan.monthlyCommitment}"></td>
+            <td th:text="${tempLoan.firstName}"></td>
+            <td th:text="${tempLoan.lastName}"></td>
+            <td th:text="${tempLoan.phoneNumber}"></td>
+            <td th:text="${tempLoan.status}"></td>
+            <td style="padding-top: 8px">
+                <div class="row">
+                    <div class="col-small">
+                        <div sec:authorize="hasAnyRole('ROLE_EMPLOYEE', 'ROLE_MANAGER')">
+                            <a th:href="@{/loans/confirm-form(loanId=${tempLoan.id})}"
+                               class="btn btn-light font-button btn-sm">
+                                Update
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-small">
+                        <div sec:authorize="hasRole('MANAGER')">
+                            <a th:href="@{/loans/delete(loanId=${tempLoan.id})}"
+                               class="btn btn-secondary font-button btn-sm"
+                               onclick="if (!(confirm('Are you sure?'))) return false">
+                                Delete&nbsp
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
+<div th:replace="fragments/dropdown-list-js :: dropdown-list-js"></div>
 </body>
 </html>
 

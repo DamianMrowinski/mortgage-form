@@ -1,8 +1,8 @@
 package com.mortgageform.service;
 
-import java.util.List;
-
 import com.mortgageform.entity.Loan;
+
+import java.util.List;
 
 public interface LoanService {
 

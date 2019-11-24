@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" media="screen" th:href="@{/css/style.css}"/>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
-          id="bootstrap-css">
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title>Mortgage Form - login now</title>
+    <div th:replace="fragments/head :: head"></div>
 </head>
 <body>
 
 <section class="login-block">
-    <div class="container">
+    <div class="container container-style">
         <div class="row">
             <div class="col-md-4 login-sec">
-                <h2 class="text-center">Login Now</h2>
+                <h2 class="text-center federant-font">Mortgage Form</h2>
+                <h4 class="text-center federant-font">Login</h4>
                 <form th:action="@{/authenticateTheUser}" method="POST" class="form-horizontal login-form">
                     <div class="form-group">
-                        <input type="text" id="username" name="username" placeholder="Username" class="form-control">
+                        <input type="text" id="username" name="username" placeholder="Username"
+                               class="form-control federant-font">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" placeholder="Password" class="form-control">
+                        <input type="password" name="password" placeholder="Password"
+                               class="form-control federant-font">
                     </div>
 
                     <div>
@@ -38,7 +36,7 @@
                     </div>
 
                     <div class="form-check">
-                        <button type="submit" class="btn btn-login float-right">Submit</button>
+                        <button type="submit" class="btn btn-danger float-right">Submit</button>
                     </div>
 
                 </form>
@@ -47,18 +45,13 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
-                                 alt="First slide">
+                            <img class="d-block w-100" src="images/login-page-img1.jpg" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100"
-                                 src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg"
-                                 alt="Second slide">
+                            <img class="d-block w-100" src="images/login-page-img2.jpg" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100"
-                                 src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg"
-                                 alt="Third slide">
+                            <img class="d-block w-100" src="images/login-page-img3.jpg" alt="Third slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

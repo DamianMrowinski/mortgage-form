@@ -1,5 +1,15 @@
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
+body {
+    background: url(../../../images/background-img2.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.body-confirm-form {
+    background: url(../../../images/background-img2.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
 #confirmation-button {
     text-align: right;
     width: 100%;
@@ -26,6 +36,8 @@
     float: left;
     width: 100%;
     padding: 50px 0;
+    height: 100%;
+    position: absolute;
 }
 
 .login-block div.banner-sec {
@@ -33,14 +45,14 @@
 }
 
 .banner-sec {
-    background: url(https://static.pexels.com/photos/33972/pexels-photo.jpg) no-repeat left bottom;
+    background: url(images/login-page-img1.jpg) no-repeat left bottom;
     background-size: cover;
     min-height: 500px;
     border-radius: 0 10px 10px 0;
     padding: 0;
 }
 
-.container {
+.container-style {
     background: #fff;
     border-radius: 10px;
     box-shadow: 15px 20px 0 rgba(0, 0, 0, 0.1);
@@ -56,7 +68,7 @@
 }
 
 .login-sec {
-    padding: 50px 30px;
+    padding: 20px 30px;
     position: relative;
 }
 
@@ -77,15 +89,34 @@
 }
 
 .login-sec h2 {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-weight: 800;
     font-size: 30px;
     color: #DE6262;
 }
 
+.login-sec h4 {
+    font-weight: 800;
+    font-size: 25px;
+    color: #DE6262;
+    margin-bottom: 0px;
+}
+
+.login-sec h4:after {
+    content: " ";
+    width: 0px;
+    height: 5px;
+    background: #FEB58A;
+    display: block;
+    margin-top: 20px;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto
+}
+
 .login-sec h2:after {
     content: " ";
-    width: 100px;
+    width: 230px;
     height: 5px;
     background: #FEB58A;
     display: block;
@@ -125,4 +156,36 @@
 
 .banner-text p {
     color: #fff;
+}
+
+.custom-dropdown-item {
+    display: block;
+    padding-top: 0;
+    padding-left: 5px;
+    width: 150px;
+}
+
+#logo {
+    text-align: center;
+}
+
+.font-button {
+    font-size: 13px;
+}
+
+#update-button {
+    text-align: left;
+    margin-top: 5px;
+    padding-left: 15px;
+}
+
+.errors-padding{
+    padding-left: 18px;
+}
+
+table tr td, table tr th{
+    background-color: rgba(75,75,75, 0.9) !important;
+    text-align: center;
+    color:white;
+    /*font-family: 'Gugi', cursive;*/
 }

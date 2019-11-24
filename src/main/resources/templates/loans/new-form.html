@@ -3,58 +3,88 @@
 
 <head>
     <title>New form</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <div th:replace="fragments/head :: head"></div>
 </head>
 
 <body>
+<div th:replace="fragments/login-dropdown-list :: login-dropdown-list"></div>
+
 <div class="container">
     <br>
-    <p class="h4 mb-4">New mortgage form</p>
+    <h3 id="logo">New mortgage form</h3><br>
     <form th:action="@{/loans/save-new-form}" th:object="${loan}" method="POST">
         <input type="hidden" th:field="*{id}"/>
 
-        <!--        <table>-->
-        <input type="text" th:field="*{salesPrice}"
-               class="form-control mb-4 col-4" placeholder="Sales price">
+        <div class="row">
+            <div class="col-sm-11 offset-sm-4">
+                <div class="form-group">
+                    <input type="text" th:field="*{salesPrice}"
+                           class="form-control col-4" placeholder="Sales price">
+                    <div class="text-danger small small" th:if="${#fields.hasErrors('salesPrice')}"
+                         th:errors="*{salesPrice}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{downPayment}"
+                           class="form-control col-4" placeholder="Down payment">
+                    <div class="text-danger small small" th:if="${#fields.hasErrors('downPayment')}"
+                         th:errors="*{downPayment}">Name Error
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{mortgageTerm}"
+                           class="form-control col-4" placeholder="Mortgage term">
+                    <div class="text-danger small small" th:if="${#fields.hasErrors('mortgageTerm')}"
+                         th:errors="*{mortgageTerm}">Name Error
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{monthlyIncome}"
+                           class="form-control col-4"
+                           placeholder="Monthly income">
+                    <div class="text-danger small small" th:if="${#fields.hasErrors('monthlyIncome')}"
+                         th:errors="*{monthlyIncome}">Name Error
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{monthlyCommitment}"
+                           class="form-control col-4" placeholder="Monthly commitment">
+                    <div class="text-danger small small"
+                         th:if="${#fields.hasErrors('monthlyCommitment')}"
+                         th:errors="*{monthlyCommitment}">Name Error
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{firstName}"
+                           class="form-control col-4" placeholder="First name">
+                    <div class="text-danger small" th:if="${#fields.hasErrors('firstName')}"
+                         th:errors="*{firstName}">Name Error
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{lastName}"
+                           class="form-control col-4" placeholder="Last name">
+                    <div class="text-danger small" th:if="${#fields.hasErrors('lastName')}"
+                         th:errors="*{lastName}">Name Error
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{phoneNumber}"
+                           class="form-control col-4" placeholder="Phone number">
+                    <div class="text-danger small" th:if="${#fields.hasErrors('phoneNumber')}"
+                         th:errors="*{phoneNumber}">Name Error
+                    </div>
+                </div>
 
-        <!--        <tr>-->
-        <!--            <td><input type="text" th:field="*{salesPrice}"/></td>-->
-        <!--            <td th:if="${#fields.hasErrors('salesPrice')}" th:errors="*{salesPrice}">Name Error</td>-->
-        <!--        </tr>-->
-
-        <input type="text" th:field="*{downPayment}"
-               class="form-control mb-4 col-4" placeholder="Down payment">
-
-        <input type="text" th:field="*{lengthOfEmployment}"
-               class="form-control mb-4 col-4" placeholder="Length of employment">
-
-        <input type="text" th:field="*{monthlyIncome}"
-               class="form-control mb-4 col-4" placeholder="Monthly income">
-
-        <input type="text" th:field="*{monthlyCommitment}"
-               class="form-control mb-4 col-4" placeholder="Monthly commitment">
-
-        <input type="text" th:field="*{firstName}"
-               class="form-control mb-4 col-4" placeholder="First name">
-
-        <input type="text" th:field="*{lastName}"
-               class="form-control mb-4 col-4" placeholder="Last name">
-
-        <input type="text" th:field="*{phoneNumber}"
-               class="form-control mb-4 col-4" placeholder="Phone number">
-
-        <input type="hidden" th:field="*{status}"/>
-
-        <button type="submit" class="btn btn-info col-2">Send</button>
-        <!--        </table>-->
+                <input type="hidden" th:field="*{status}"/>
+            </div>
+            <button type="submit" class="btn btn-light col-2 offset-sm-5">Send</button>
+        </div>
     </form>
     <hr>
     <br><br>
 </div>
-
+<div th:replace="fragments/dropdown-list-js :: dropdown-list-js"></div>
 </body>
 </html>
 

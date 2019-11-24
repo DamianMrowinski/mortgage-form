@@ -1,0 +1,11 @@
+<div th:fragment="login-dropdown-list">
+    <div class="logout-dropdown-list float-right">
+        <button class="btn btn-light btn-md dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"></button>
+        <div class="dropdown-menu">
+            <form action="#" th:action="@{/login}" method="GET">
+                <input type="submit" value="Login" class="dropdown-item custom-dropdown-item gugi-font">
+            </form>
+        </div>
+    </div>
+</div>

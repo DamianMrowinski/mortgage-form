@@ -1,77 +1,73 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+>
 
 <head>
-    <title>Update status</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Confirmation</title>
+    <div th:replace="fragments/head :: head"></div>
 </head>
 
-<body>
-<div class="container">
-    <hr>
-    <p class="h4 mb-4">Update current status</p>
+<body class="body-confirm-form">
+<div th:replace="fragments/logout-dropdown-list :: logout-dropdown-list"></div>
+
+<div class="container"><br><br>
+    <h3 id="logo">Confirmation</h3>
     <form th:action="@{/loans/save-updated-form}" th:object="${loan}" method="POST">
         <input type="hidden" th:field="*{id}"/>
+
         <div id="dropdown-accept-reject">
-            <select th:field="*{status}" class="btn btn-info col-2 float-right">
+            <select th:field="*{status}" class="btn btn-light col-1 offset-sm-9 font-button">
                 <option th:value='Accepted' th:text="Accept"></option>
                 <option th:value='Rejected' th:text="Reject"></option>
             </select>
         </div>
-        <br><br>
 
-        <button type="submit" class="btn btn-info col-2 float-right">Update status</button>
+        <button type="submit" id=update-button class="btn btn-light col-1 offset-sm-9 font-button" style=>Update
+        </button>
 
-        Sales price
-        <input type="text" th:field="*{salesPrice}"
-               class="form-control mb-4 col-4">
+        <div class="row">
+            <span class="col-sm-11 offset-md-4">
 
-        Down payment
-        <input type="text" th:field="*{downPayment}"
-               class="form-control mb-4 col-4">
+                <div class="custom-font"> Sales price</div>
+                <input type="text" th:field="*{salesPrice}"
+                       class="form-control mb-4 col-4 custom-font">
 
-        Length of employment
-        <input type="text" th:field="*{lengthOfEmployment}"
-               class="form-control mb-4 col-4">
+                <div class="custom-font"> Down payment</div>
+                <input type="text" th:field="*{downPayment}"
+                       class="form-control mb-4 col-4 custom-font">
 
-        Monthly income
-        <input type="text" th:field="*{monthlyIncome}"
-               class="form-control mb-4 col-4">
+                <div class="custom-font"> Mortgage term</div>
+                <input type="text" th:field="*{mortgageTerm}"
+                       class="form-control mb-4 col-4 custom-font">
 
-        Monthly commitment
-        <input type="text" th:field="*{monthlyCommitment}"
-               class="form-control mb-4 col-4">
+                <div class="custom-font"> Monthly income</div>
+                <input type="text" th:field="*{monthlyIncome}"
+                       class="form-control mb-4 col-4 custom-font">
 
-        First name
-        <input type="text" th:field="*{firstName}"
-               class="form-control mb-4 col-4">
+                <div class="custom-font"> Monthly commitment</div>
+                <input type="text" th:field="*{monthlyCommitment}"
+                       class="form-control mb-4 col-4 custom-font">
 
-        Last name
-        <input type="text" th:field="*{lastName}"
-               class="form-control mb-4 col-4">
+                <div class="custom-font"> First name</div>
+                <input type="text" th:field="*{firstName}"
+                       class="form-control mb-4 col-4 custom-font">
 
-        Phone number
-        <input type="text" th:field="*{phoneNumber}"
-               class="form-control mb-4 col-4">
+                <div class="custom-font"> Last name</div>
+                <input type="text" th:field="*{lastName}"
+                       class="form-control mb-4 col-4 custom-font">
+
+                <div class="custom-font"> Phone number</div>
+                <input type="text" th:field="*{phoneNumber}"
+                       class="form-control mb-4 col-4 custom-font">
+            </span>
+        </div>
     </form>
     <hr>
-    <a th:href="@{/loans/new-form}" class="btn btn-info col-2">
-        Back to list
+    <a th:href="@{/loans/list}" class="btn btn-light col-1 offset-sm-9 font-button">
+        Return
     </a>
     <br><br>
 </div>
+<div th:replace="fragments/dropdown-list-js :: dropdown-list-js"></div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

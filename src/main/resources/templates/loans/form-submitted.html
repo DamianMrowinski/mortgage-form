@@ -3,22 +3,20 @@
 
 <head>
     <title>Success</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <div th:replace="fragments/head :: head"></div>
 </head>
 
 <body>
-<h5 p align="center">
-    Success! You have fulfilled a mortage form successfully.
+<div th:replace="fragments/login-dropdown-list :: login-dropdown-list"></div>
+
+<h5 align="center" class="custom-font">
+    <p>Success! You have fulfilled a mortage form successfully.
     <p>
-        Thank you for contacting us. We will respond to you within 24 hours.
-    <p>
-        For urgent inquiries please call us today! +48800800800
-    <p>
-        If you want to submit new mortgage form click <a th:href="@{/loans/new-form}">here</a>
+    <p>Thank you for contacting us. We will respond to you within 24 hours.</p>
+    <p>For urgent inquiries please call us today! +48800800800</p>
+    <p>If you want to submit new mortgage form click <a th:href="@{/loans/new-form}">here</a>.</p>
 </h5>
+<div th:replace="fragments/dropdown-list-js :: dropdown-list-js"></div>
 </body>
 </html>
 
