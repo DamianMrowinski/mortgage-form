@@ -26,15 +26,9 @@ mvn spring-boot:run
 
 Screens
 ---------------------------------------------
-
-![alt text](https://github.com/DamianMrowinski/mortgage-form/src/main/resources/static/images/screens/screen1.png "Screen 1")
-
-![alt text](https://github.com/DamianMrowinski/mortgage-form/src/main/resources/static/images/screens/screen2.png "Screen 2")
-
-![alt text](https://github.com/DamianMrowinski/mortgage-form/src/main/resources/static/images/screens/screen3.png "Screen 3")
-
-![alt text](https://github.com/DamianMrowinski/mortgage-form/src/main/resources/static/images/screens/screen4.png "Screen 4")
-
-![alt text](https://github.com/DamianMrowinski/mortgage-form/src/main/resources/static/images/screens/screen5.png "Screen 5")
-
-![alt text](https://github.com/DamianMrowinski/mortgage-form/src/main/resources/static/images/screens/screen6.png "Screen 6")
+![](src/main/resources/static/images/screens/screen1.png)
+![](src/main/resources/static/images/screens/screen2.png)
+![](src/main/resources/static/images/screens/screen3.png)
+![](src/main/resources/static/images/screens/screen4.png)
+![](src/main/resources/static/images/screens/screen5.png)
+![](src/main/resources/static/images/screens/screen6.png)
