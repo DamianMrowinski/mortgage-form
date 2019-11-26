@@ -15,10 +15,8 @@
         <h4 id="logo">Mortgage forms</h4>
     </div>
     <div>
-        <a th:href="@{/loans/new-form}" class="btn btn-light mb-3 float-left font-button" style="font-size: 16px">Add
-            new
+        <a th:href="@{/loans/new-form}" class="btn btn-light mb-3 float-left font-button font-size-16px">Add new
             entry</a>
-
         <form th:action="@{/loans/search}" class="form-inline font-button float-right">
             <input class="form-control ml-5 mr-sm-2 mb-3" type="search" name="lastName"
                    placeholder="Type client's name"/>
@@ -26,14 +24,14 @@
         </form>
     </div>
 
-    <div th:if="${loans.isEmpty()}" style="clear: both">
+    <div th:if="${loans.isEmpty()}" class="clear-both">
         <div class="alert alert-info" role="alert">
             No records found. Please try again.
         </div>
     </div>
 
     <table th:if="${!loans.isEmpty()}" class="table table-hover table-condensed">
-        <tr class="table-primary" style="text-align: center">
+        <tr class="table-primary text-align">
             <th scope="col">No</th>
             <th scope="col">Sales price</th>
             <th scope="col">Down payment</th>
@@ -44,7 +42,7 @@
             <th scope="col">Last name</th>
             <th scope="col">Phone number</th>
             <th scope="col">Status</th>
-            <th scope="col" style="width: 12%">Activity</th>
+            <th scope="col" id="loans-list-activity-width">Activity</th>
         </tr>
 
         <tbody>
@@ -59,7 +57,7 @@
             <td th:text="${tempLoan.lastName}"></td>
             <td th:text="${tempLoan.phoneNumber}"></td>
             <td th:text="${tempLoan.status}"></td>
-            <td style="padding-top: 8px">
+            <td id="td-status-padding-top-8-px">
                 <div class="row">
                     <div class="col-small">
                         <div sec:authorize="hasAnyRole('ROLE_EMPLOYEE', 'ROLE_MANAGER')">

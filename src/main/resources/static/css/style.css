@@ -1,12 +1,7 @@
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
 body {
-    background: url(../../../images/background-img2.jpg) no-repeat center center fixed;
-    background-size: cover;
-}
-
-.body-confirm-form {
-    background: url(../../../images/background-img2.jpg) no-repeat center center fixed;
+    background: url(../../../images/background-img.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -161,12 +156,14 @@ body {
 .custom-dropdown-item {
     display: block;
     padding-top: 0;
-    padding-left: 5px;
-    width: 150px;
+    margin-right: 17px;
+    text-align: center;
 }
 
 #logo {
     text-align: center;
+    font-family: 'Bree Serif', serif;
+    margin-bottom: 50px;
 }
 
 .font-button {
@@ -187,5 +184,24 @@ table tr td, table tr th{
     background-color: rgba(75,75,75, 0.9) !important;
     text-align: center;
     color:white;
-    /*font-family: 'Gugi', cursive;*/
+}
+
+#loans-list-activity-width{
+    width: 11%;
+}
+
+.text-align{
+    text-align: center;
+}
+
+.font-size-16px{
+    font-size: 16px;
+}
+
+.clear-both{
+    clear: both;
+}
+
+#td-status-padding-top-8-px{
+    padding-top: 8px;
 }

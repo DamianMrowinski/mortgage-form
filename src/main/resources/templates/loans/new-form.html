@@ -11,7 +11,7 @@
 
 <div class="container">
     <br>
-    <h3 id="logo">New mortgage form</h3><br>
+    <h4 id="logo">New mortgage form</h4><br>
     <form th:action="@{/loans/save-new-form}" th:object="${loan}" method="POST">
         <input type="hidden" th:field="*{id}"/>
 

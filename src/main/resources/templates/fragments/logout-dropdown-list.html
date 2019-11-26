@@ -1,14 +1,12 @@
 <div th:fragment="logout-dropdown-list">
     <div class="logout-dropdown-list float-right">
+        <span sec:authentication="name"></span>
         <button class="btn btn-light btn-md dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false"></button>
         <div class="dropdown-menu">
-            <p align="center" class="gugi-font" style="font-size: 0.9rem">Logged as <span
-                    sec:authentication="name"></span></p>
-            <div class="dropdown-divider"></div>
-            <div class="custom-dropdown-item float-left">
+            <div class="custom-dropdown-item float-right">
                 <form action="#" th:action="@{/logout}" method="POST">
-                    <input type="submit" value="Logout" class="dropdown-item custom-dropdown-item gugi-font">
+                    <input type="submit" value="Logout" class="dropdown-item custom-dropdown-item">
                 </form>
             </div>
         </div>

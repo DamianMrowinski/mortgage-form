@@ -11,7 +11,7 @@
 <div th:replace="fragments/logout-dropdown-list :: logout-dropdown-list"></div>
 
 <div class="container"><br><br>
-    <h3 id="logo">Confirmation</h3>
+    <h4 id="logo">Confirmation</h4>
     <form th:action="@{/loans/save-updated-form}" th:object="${loan}" method="POST">
         <input type="hidden" th:field="*{id}"/>
 
@@ -22,8 +22,7 @@
             </select>
         </div>
 
-        <button type="submit" id=update-button class="btn btn-light col-1 offset-sm-9 font-button" style=>Update
-        </button>
+        <button type="submit" id=update-button class="btn btn-light col-1 offset-sm-9 font-button">Update</button>
 
         <div class="row">
             <span class="col-sm-11 offset-md-4">
