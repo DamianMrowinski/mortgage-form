@@ -4,7 +4,7 @@ Mortgage Form
 This project contains technologies:
 - Spring Boot 2.1.8
 - JPA + Hibernate
-- Maven 3.1.1
+- Maven 3.6.1
 - Java 11
 - Thymeleaf 3
 - Bootstrap 4
